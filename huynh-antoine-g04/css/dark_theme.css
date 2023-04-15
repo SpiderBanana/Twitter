@@ -1,0 +1,115 @@
+:root {
+  --main-bg-color: #212529;
+  --main-text-color: #f0f0f0;
+  --container-bg-color: #343a40;
+  --post-container-bg-color: #3a3a3a;
+  --primary-btn-color: #FFA500;
+  --primary-btn-hover-color: #d38027;
+  --danger-btn-color: #ff4d4d;
+  --danger-btn-hover-color: #e63939;
+  --form-control-bg-color: #495057;
+  --form-control-border-color: #ced4da;
+  --form-control-focus-color: #FFA500;
+  --input-group-text-bg-color: #3a3a3a;
+  --input-group-text-color: #f0f0f0;
+  --modal-content-bg-color: #2c2c2c;
+  --modal-content-text-color: #f8f8f8;
+  --post-tag-color: #999;
+  --post-info-color: #aaa;
+  --navbar-bg-color: #2b2b2b;
+  --navbar-border-color: rgba(255, 255, 255, 0.2);
+  --floating-menu-bg-color: #2b2b2b;
+  --floating-menu-border-color: rgba(255, 255, 255, 0.534);
+  --navbarfixed-bottom-bg-color: #1c1c1c;
+  --navbarfixed-bottom-text-color: #f0f0f083;
+}
+  
+  .dark-theme {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+  }
+  
+  .dark-theme .container-wrapper {
+    background-color: var(--container-bg-color);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark-theme .post-container {
+    background-color: var(--container-bg-color);
+    
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dark-theme .btn-primary {
+    background-color: var(--primary-btn-color);
+    border-color: var(--primary-btn-color);
+  }
+  
+  .dark-theme .btn-primary:hover,
+  .dark-theme .btn-primary:focus,
+  .dark-theme .btn-primary:active {
+    background-color: var(--primary-btn-hover-color);
+    border-color: var(--primary-btn-hover-color);
+  }
+  
+  .dark-theme .btn-danger {
+    background-color: var(--danger-btn-color);
+    border-color: var(--danger-btn-color);
+  }
+  
+  .dark-theme .btn-danger:hover,
+  .dark-theme .btn-danger:focus,
+  .dark-theme .btn-danger:active {
+    background-color: var(--danger-btn-hover-color);
+    border-color: var(--danger-btn-hover-color);
+  }
+  
+  .dark-theme .form-control {
+    background-color: var(--form-control-bg-color);
+    color: var(--main-text-color);
+    border-color: var(--form-control-border-color);
+  }
+  
+  .dark-theme .form-control:focus {
+    box-shadow: 0 0 0 0.2rem var(--form-control-focus-color);
+  }
+  
+  .dark-theme .input-group-text {
+    background-color: var(--input-group-text-bg-color);
+    color: var(--input-group-text-color);
+    border-color:var(--form-control-border-color);
+}
+
+.dark-theme .modal-content {
+background-color: var(--modal-content-bg-color);
+color: var(--modal-content-text-color);
+}
+
+.dark-theme .close {
+color: var(--main-text-color);
+}
+
+.post-tag {
+font-size: 80%;
+color: var(--post-tag-color);
+}
+
+.post-info.dark-theme {
+color: var(--post-info-color);
+}
+
+.dark-theme .navbar {
+background-color: var(--navbar-bg-color);
+border-bottom: 1px solid var(--navbar-border-color);
+}
+
+.dark-theme .floating-menu {
+background-color: var(--floating-menu-bg-color);
+border-top: 1px solid var(--floating-menu-border-color);
+}
+
+.navbarfixed-bottom .dark-theme {
+background-color: var(--navbarfixed-bottom-bg-color);
+color: var(--navbarfixed-bottom-text-color);
+padding: 10px 0;
+}

@@ -1,0 +1,2 @@
+-créer une base de donnée "projet"
+-fichier sql à importer dans la base de donnée
