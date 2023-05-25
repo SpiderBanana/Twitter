@@ -1,0 +1,90 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #212529;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.register-container {
+    background-color: #343a40;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.welcome {
+    color: #FFA500;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.sign-up {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.form-group label {
+    color: #ccc;
+}
+
+.form-control {
+    background-color: #495057;
+    border-radius: 0;
+    border: 1px solid #ced4da;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #FFA500;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+}
+
+.btn-primary:hover {
+    background-color: #d38027;
+    border-color: #d38027;
+}
+
+.text-center a {
+    color: #FFA500;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.text-center p {
+    color: #ffffff;
+}
+
+.text-center h1 {
+    color: #FFA500;
+}
+
+
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #d38027;
+    border-color: #d38027;
+}
+
+@media (max-width: 576px) {
+    .col-md-5 {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+}

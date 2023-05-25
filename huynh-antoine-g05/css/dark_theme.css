@@ -1,0 +1,79 @@
+.dark-theme {
+  background-color: #212529;
+  color: #f0f0f0;
+}
+
+.dark-theme .container-wrapper {
+  background-color: #343a40;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .post-container {
+  background-color: #343a40;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .btn-primary {
+  background-color: #FFA500;
+  border-color: #FFA500;
+}
+
+.dark-theme .btn-primary:hover,
+.dark-theme .btn-primary:focus,
+.dark-theme .btn-primary:active {
+  background-color: #d38027;
+  border-color: #d38027;
+}
+
+.dark-theme .btn-danger {
+  background-color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+.dark-theme .btn-danger:hover,
+.dark-theme .btn-danger:focus,
+.dark-theme .btn-danger:active {
+  background-color: #e63939;
+  border-color: #e63939;
+}
+
+.dark-theme .form-control {
+  background-color: #495057;
+  color: #f0f0f0;
+  border-color: #ced4da;
+}
+
+.dark-theme .modal-content {
+  background-color: #2c2c2c;
+  color: #f8f8f8;
+}
+
+.dark-theme .close {
+  color: #f0f0f0;
+}
+
+.post-tag {
+  font-size: 80%;
+  color: #999;
+}
+
+.post-info.dark-theme {
+  color: #aaa;
+}
+
+.dark-theme .hamburger{
+  background-color: #242424;
+  color: rgb(185, 186, 187);
+}
+.dark-theme .navbar-bottom{
+  background-color: #333;
+}
+.dark-theme .dropdown{
+  background-color: #333;
+}
+.dark-theme .dropdown-item{
+  color: white;
+}
+.dark-theme .dropdown-item:hover {
+  background-color: #464646;
+}
