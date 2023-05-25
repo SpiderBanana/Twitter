@@ -144,14 +144,10 @@ function getUserProfilePicture($pdo, $pseudo) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>projet d'axe</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--importation Bootstrap-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--importation jquery-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> <!--importation ajax-->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!--importation Bootstrap-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
   <link rel="stylesheet" href="css/home_style.css">
   <link rel="stylesheet" href="css/dark_theme.css">
   <link rel="stylesheet" href="css/button.css">
-  <script src="https://kit.fontawesome.com/e1f27ad912.js" crossorigin="anonymous"></script>
   
 </head>
 
@@ -190,22 +186,25 @@ function getUserProfilePicture($pdo, $pseudo) {
  </div>
 
 
-          <!-- Affichage "Posts" -->
-      <h2 class="my-4 centered">Posts</h2>
+          <!-- Affichage "TAGS" -->
+      <h2 class="my-4 centered">TAGS</h2>
 
       <div class="tweets-container">
+      <div class="tags-grid">
+  <?php foreach ($tags as $key => $value) : ?>
+    <button class="tag-button" data-tag="<?php echo $key; ?>" style="background-color: <?php echo $tagColors[$key]; ?>;"><?php echo $value; ?></button>
+  <?php endforeach; ?>
+</div>
           <form method="get" class="search-form mb-3" id="search-form">
 
-        <div class="input-group">
           
-          <input type="text" name="search" class="form-control d-none d-md-inline-block" placeholder="Rechercher un post" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+        
+        <div class="input-group">
+
+          
+          <input type="text" name="search" class="form-control" placeholder="Rechercher un post" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
           <!-- Ajout du champ de sélection pour le tag dans le formulaire de recherche -->
-          <select name="tag" class="form-control">
-            <option value="">Tous les tags</option>
-            <?php foreach ($tags as $key => $value) : ?>
-              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-            <?php endforeach; ?>
-          </select>
+
 
           <div class="input-group-append">
             <button type="submit" class="btn btn-primary">Rechercher</button>
@@ -214,24 +213,18 @@ function getUserProfilePicture($pdo, $pseudo) {
         </div>
       </form>
 
-      <form method="get" class="search-form d-none" id="mobile-search-form">
-        <div class="input-group ">
-          <input type="text" name="search" class="form-control d-md-none"  placeholder="Rechercher un post" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-          
-        </div>
-      </form>
+
 
 
           </div>
           
-          <ul class="list-group">
+          
 
-                      <!--tri les tweets affichés en fonction de la date de publication (code php au-dessus).-->
-                      <div class="sort-links">
+               <div class="tri">    
                 <a href="?sort=ancien">Du plus ancien au plus récent</a> | <a href="?sort=recent">Du plus récent au plus ancien</a>
-              </div>
+              </div>   
 
-              <?php
+                <?php
       // parcourt tous les posts récupérés de la base de données et les affiche sur la page
       while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo '<div class="post-container d-flex">';
@@ -304,7 +297,6 @@ function getUserProfilePicture($pdo, $pseudo) {
           <div class="form-group">
     <input type="file" name="image" id="image" class="form-control-file">
   </div>
-  
 
 
 
@@ -361,21 +353,49 @@ function getUserProfilePicture($pdo, $pseudo) {
 </div>
 
 
-
-<!-- navbar responsive -->
-<div class="navbar fixed-bottom d-md-none">
-  <div class="container">
-    <div class="d-flex justify-content-around">
-      <button id="hamburger" class="hamburger">&#9776;</button>
+<!-- Navigation bar mobile -->
+<div id="navbar-mobile">
+  <button id="hamburger-btn">&#9776;</button>
+  <div id="hamburger-content">
+    <!-- boutton deconnexion -->
+    <div>
+        <form method="post" action="logout.php">
+          <button type="submit">&#128682;</button>
+        </form>
+    </div>
+    <!-- boutton choisir photo de profil -->
+    <div>
+        <button id="settings-btn">&#9881;</button>
+    </div>
+    <!-- boutton pour poster -->
+    <div>
+        <button id="floating-btn">&#9999;</button>
     </div>
   </div>
 </div>
 
-<div id="dropdown-menu" class="floating-menu d-md-none">
-  <a data-action="settings-link">&#9881;</a>
-  <a data-action="search-link">🔎</a>
-  <a data-action="new-post-link">&#9999;</a>
-</div>
+
+
+<script>
+  var hamburgerBtn = document.getElementById('hamburger-btn');
+  var hamburgerContent = document.getElementById('hamburger-content');
+
+  hamburgerBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); // prevent this click from triggering the document click event
+    if (hamburgerContent.classList.contains('show')) {
+      hamburgerContent.classList.remove('show');
+    } else {
+      hamburgerContent.classList.add('show');
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    // Check if the clicked element is not inside the menu and is not the hamburger button
+    if (!hamburgerContent.contains(e.target) && e.target !== hamburgerBtn) {
+      hamburgerContent.classList.remove('show');
+    }
+  });
+</script>
 
 
 </body>
@@ -383,44 +403,6 @@ function getUserProfilePicture($pdo, $pseudo) {
 
 
 <script src="script.js"></script>
-
-<script>$(document).ready(function () {
-  // Ouvrir/Fermer le menu déroulant flottant lorsqu'on clique sur le bouton hamburger
-  $('#hamburger').on('click', function () {
-    $('#dropdown-menu').toggleClass('open');
-  });
-});
-
-//JQUERY
-$(document).ready(function() {
-  // Ouvrir le modal pour choisir une photo de profil
-  $('#dropdown-menu a[data-action="settings-link"], #settings-btn').click(function() {
-    $('#settings-modal').show();
-  });
-
-  // Ouvrir le modal pour poster
-  $('#dropdown-menu a[data-action="new-post-link"], #floating-btn').click(function() {
-    $('#modal').show();
-  });
-
-  // Afficher la barre de recherche mobile
-  $('#dropdown-menu a[data-action="search-link"], #search-link').click(function() {
-    $('#mobile-search-form').toggleClass('d-none');
-  });
-
-  // Fermer les modals
-  $('.modal .close').click(function() {
-    $(this).closest('.modal').hide();
-  });
-
-  // Fermer les modals lorsqu'on clique en dehors de la zone de contenu
-  $('.modal').click(function(e) {
-    if (e.target == this) {
-      $(this).hide();
-    }
-  });
-});
-</script>
 
 
 
@@ -498,6 +480,10 @@ document.getElementById("profile_picture").addEventListener("change", function(e
 });
 
 
-
+function resetLocalStorage() {
+  localStorage.removeItem("message");
+  localStorage.removeItem("tag");
+}
 </script>
+
 
