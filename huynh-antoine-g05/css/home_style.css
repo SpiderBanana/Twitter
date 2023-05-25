@@ -1,0 +1,679 @@
+body {
+  font-family: "Arial", sans-serif; 
+  margin: 0;
+}
+
+
+@keyframes modalOpen {
+  from { transform: scale(0, 0); opacity: 0; }
+  to { transform: scale(1, 1); opacity: 1; }
+    
+  0% { transform: scale(0, 0); opacity: 0; }
+  60% { transform: scale(1.1, 1.1); opacity: 0.7; }
+  100% { transform: scale(1, 1); opacity: 1; }
+  
+  
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  animation: modalOpen 0.3s ease-out;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.post-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-form {
+  text-align: center;
+}
+
+.post-content {
+  word-wrap: break-word;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  
+}
+
+.post-username {
+  display: block;
+  margin-bottom: 2px; 
+}
+
+
+.post-container {
+border: 1px solid rgba(0, 0, 0, 0.2); 
+box-shadow: 0px 0px 10px 0px rgba(204, 196, 196, 0.5);
+padding: 10px;
+margin-bottom: 10px;
+min-height: 50px;
+border-radius: 5px; 
+}
+
+
+@media (max-width: 768px) { 
+  #logout-button, #settings-btn, #floating-btn {
+      display: none; /* Cacher les boutons spécifiés */
+  }
+}
+
+@media (min-width: 769px) { 
+  #logout-button, #settings-btn, #floating-btn {
+      display: inline-block; /* Afficher les boutons spécifiés */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+textarea#message {
+  width: 100%;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+
+.container-wrapper {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.search-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+#modal label {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+
+.modal-content form .form-control {
+  margin: 10px 0;
+  width:100%;  
+}
+
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+
+
+@media (min-width: 768px) {
+  .modal-content {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+.welcome-container,
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+
+
+.post-info {
+  justify-content: space-between;
+  align-items: center; 
+  color: #999; 
+}
+
+
+
+
+
+/* Style pour le menu déroulant flottant */
+.floating-menu {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+/* Animation pour le menu déroulant flottant ouvert */
+.floating-menu.open {
+  height: 60px;
+}
+
+#dropdown-menu a {
+  cursor: pointer;
+}
+
+
+.post-content-container {
+word-wrap: break-word;
+min-height: 50px; 
+overflow: auto; 
+flex-grow: 1;
+overflow-x: hidden;
+}
+
+
+
+/* modal pp */
+
+
+.file-upload {
+position: relative;
+display: inline-block;
+}
+
+.file-input {
+position: absolute;
+left: -99999px;
+}
+
+.file-label {
+display: inline-block;
+padding: 8px 16px;
+font-size: 16px;
+font-weight: 700;
+color: #fff;
+background-color: #a7a7a7;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.file-name {
+display: inline-block;
+margin-left: 16px;
+font-size: 16px;
+color: #555;
+}
+
+
+
+.post-profile-picture {
+margin-right: 10px;
+}
+
+
+
+
+
+.page-content.blur {
+filter: blur(4px);
+}
+
+
+.logout-form{
+margin-right: 2px;
+}
+
+
+.post-image img {
+max-width: 100%;
+max-height: 300px;
+object-fit: cover;
+border: 1px solid rgb(156, 156, 156);
+border-radius: 10px;
+margin-top: 16px;
+margin-bottom: 16px;
+}
+
+
+
+.form-control-file {
+display: inline-block;
+padding: 8px 16px;
+font-size: 16px;
+font-weight: 700;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+
+.tags-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Par défaut, affiche tous les boutons côte à côte */
+@media (min-width: 1200px) {
+  .tags-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+/* Lorsque la fenêtre est rétrécie, passe à une colonne de 5 boutons */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .tags-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Au dernier rétrécissement, passe à une colonne de 2 boutons */
+@media (max-width: 767px) {
+  .tags-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.tag-button {
+  color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: all 0.2s ease-in-out; /* Pour ajouter une animation */
+}
+
+.tag-button:hover {
+  background-color: #007BFF; /* Changer la couleur de fond au survol */
+  transform: scale(1.1); /* Ajoute un effet d'agrandissement lors du survol */
+}
+
+
+
+  /* .btn-secondary */
+  .btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  .input-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .input-group .form-control {
+    flex: 1 0 auto; /* cela permet à l'input de s'étendre autant que possible tout en gardant sa base à 'auto' */
+    
+  }
+  
+  .input-group-append {
+    display: flex;
+    align-items: stretch;
+  }
+
+  
+  .post-content-space-between {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+
+
+  /* .btn-secondary */
+  .btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  .input-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  
+  .input-group-append {
+    display: flex;
+    align-items: stretch;
+  }
+  
+
+  .post-content-space-between {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+
+
+
+/* .container */
+.container {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+  @media (max-width: 767px) {
+    .container {
+      width: 100%; 
+      max-width: 80%; /* Limiter la largeur maximale à 80% */
+      margin-right: auto;
+      margin-left: auto;
+      transition: width 0.6s ease; 
+    }
+  }
+  @media (max-width: 767px) {
+    .sort-links .a{
+      font-size: 1px;
+    }
+  }
+
+
+/* .btn */
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: .375rem .75rem;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* .btn-primary */
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* .d-flex */
+.d-flex {
+  display: flex;
+}
+
+/* .justify-content-center */
+.justify-content-center {
+  justify-content: center;
+}
+
+
+
+/* .btn-secondary */
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.input-group-append {
+  display: flex;
+  align-items: stretch;
+}
+
+.post-container {
+  display: flex;
+}
+
+.post-content-space-between {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
+@media (max-width: 767px) {
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-group-append {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-decoration: none;
+  }
+
+  .input-group-append .btn {
+    flex: 1; 
+    margin-top: 5px;
+  }
+
+  .input-group-append .btn:first-child {
+    margin-right: 6px; 
+  }
+}
+
+  .input-group-append a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid grey;
+  }
+
+  @media (max-width: 767px) {
+    
+    .form-control {
+      height: 25px; 
+    }
+  }
+
+.form-group textarea.form-control {
+  height: 80px;
+  
+}
+  .form-group .form-control {
+    height: 30px;
+  }
+
+
+
+
+.tri a{
+  color: rgb(99, 98, 98);
+  text-decoration: none;
+}
+
+.tri a:hover {
+  color : rgb(187, 185, 185)
+}
+
+@media (max-width: 767px) {
+  .tri a {
+    font-size: 13px;
+  }
+}
+
+.container-btn a {
+  text-decoration: none;
+}
+
+.input-group input{
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+
+
+
+
+
