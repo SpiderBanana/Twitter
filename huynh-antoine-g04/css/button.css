@@ -1,0 +1,54 @@
+@keyframes heart {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.post-delete-button {
+    margin-left: 10px;
+}
+
+.container-btn {
+    display: flex;
+    }
+
+
+    .floating-btn-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+    
+      .floating-btn{
+        background-color: #727272;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        animation: heart 2s infinite;
+      }
+
+
+      .btn-primary:not(:disabled):not(.disabled):active,
+      .show > .btn-primary.dropdown-toggle {
+          background-color: #d38027;
+          border-color: #d38027;
+      }
+      
+
+.btn-secondary{
+  border: none;
+}
